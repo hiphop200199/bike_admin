@@ -1,0 +1,35 @@
+@use './value.scss';
+
+@mixin tableStyle {
+  border-collapse: collapse;
+  width: 1000px;
+  border: value.$border;
+  margin: 0 auto;
+  td,
+  th {
+    border: value.$border;
+    text-align: center;
+    white-space: nowrap;
+  }
+  td {
+    font-size: 18px;
+    padding: 2px 5px;
+    a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 32px;
+      height: 32px;
+      margin-inline: 2px;
+      background-color: value.$dark;
+      color: value.$white;
+      cursor: pointer;
+      font-weight: 700;
+    }
+  }
+  th {
+    font-weight: 700;
+    font-size: 20px;
+    padding: 3px 5px;
+  }
+}

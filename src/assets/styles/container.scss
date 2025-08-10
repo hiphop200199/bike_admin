@@ -1,0 +1,71 @@
+@use './value.scss';
+@use './table.scss';
+@use './form.scss';
+@use './button.scss';
+@use './input.scss';
+
+.container {
+  display: inline-flex;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(100dvw - 200px);
+  .main {
+    position: relative;
+    height: 80dvh;
+    padding-inline: 15px;
+    overflow-y: auto;
+    .function {
+      width: clamp(400px, 80%, 1000px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-block-end: 30px;
+      a {
+        @include button.buttonStyle;
+        text-decoration: none;
+      }
+      .search-field {
+        * {
+          margin-inline: 5px;
+        }
+        input {
+          @include input.inputStyle;
+        }
+        button {
+          @include button.buttonStyle;
+        }
+      }
+    }
+    table {
+      @include table.tableStyle;
+    }
+    .form {
+      @include form.formStyle;
+    }
+    .back {
+      @include button.buttonStyle;
+      text-decoration: none;
+    }
+    .pagination {
+      position: absolute;
+      left: 50%;
+      bottom: 2dvh;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        font-size: 24px;
+        color: value.$dark;
+        margin-inline: 5px;
+        cursor: pointer;
+        padding: 5px;
+        &.active {
+          background-color: value.$dark;
+          color: value.$white;
+        }
+      }
+    }
+  }
+}

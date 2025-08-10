@@ -1,0 +1,49 @@
+@use './button.scss';
+@use './value.scss';
+@use './input.scss';
+.mask {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 2;
+  .lightbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+    width: 300px;
+    height: 250px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: value.$border;
+    background-color: value.$white;
+    p {
+      font-weight: 700;
+      font-size: 42px;
+    }
+    span.error {
+      font-size: 14px;
+      margin-right: 5px;
+      color: value.$red;
+    }
+    input {
+      @include input.inputStyle;
+      display: block;
+      width: 200px;
+      margin: 5px auto;
+    }
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      button {
+        @include button.buttonStyle;
+      }
+    }
+  }
+}

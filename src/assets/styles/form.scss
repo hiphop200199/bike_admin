@@ -1,0 +1,98 @@
+@use './value.scss';
+@use './button.scss';
+@use './input.scss';
+
+@mixin formStyle {
+  border: value.$border;
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 18px;
+  h1 {
+    font-size: 42px;
+    font-weight: 700;
+  }
+  input,
+  textarea {
+    @include input.inputStyle;
+  }
+  input:not([type='radio']),
+  textarea {
+    width: 300px;
+  }
+  input[type='file'] {
+    display: none;
+  }
+  select {
+    font-size: 18px;
+    padding: 3px 5px;
+    outline: none;
+    border: value.$border;
+  }
+  span {
+    font-size: 14px;
+    color: value.$grey;
+    margin-right: 5px;
+    &.error {
+      color: value.$red;
+    }
+  }
+  p {
+    margin-bottom: 5px;
+    input[type='radio']:first-child {
+      margin-right: 10px;
+    }
+    input[type='radio']:not(:first-child) {
+      margin-inline: 10px;
+    }
+  }
+  label[for='image'] {
+    width: 260px;
+    height: 220px;
+    border: value.$border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  img[alt='upload-image'] {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 5px;
+  }
+  button {
+    @include button.buttonStyle;
+  }
+  .purchase-product-area,
+  .sale-product-area,
+  .stock-product-area {
+    margin-block: 30px;
+    .purchase-product,
+    .sale-product,
+    .stock-product {
+      display: flex;
+      height: 50px;
+      margin-block: 10px;
+      border: value.$border;
+      select,
+      input {
+        align-self: center;
+        width: 200px;
+        margin-bottom: 0px;
+        height: 30px;
+        margin-inline: 10px;
+      }
+      label {
+        display: block;
+        align-self: center;
+        white-space: nowrap;
+      }
+    }
+  }
+}

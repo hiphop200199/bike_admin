@@ -1,0 +1,40 @@
+@use './value.scss';
+@use './button.scss';
+@use './form.scss';
+@use './input.scss';
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  .box {
+    height: 60dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .form {
+      @include form.formStyle;
+      .captcha-block {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input,
+        img {
+          width: 35%;
+          margin-bottom: 0;
+        }
+        button {
+          width: 12%;
+        }
+      }
+    }
+    .copyright {
+      font-size: 14px;
+      color: value.$grey;
+      margin-top: 20px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@use './value.scss';
+
+@mixin inputStyle {
+  font-size: 18px;
+  align-self: flex-start;
+  padding: 3px 5px;
+  outline: none;
+  border: value.$border;
+  margin-bottom: 5px;
+  accent-color: value.$dark;
+  &:focus {
+    border-color: value.$light;
+  }
+}

@@ -1,0 +1,40 @@
+<script src="@/controllers/employee/List.js"></script>
+<template>
+  <div class="container">
+    <div class="main">
+      <div class="function">
+        <router-link
+          v-if="authStore.userInfo.is_admin == useConstant.StatusCode.ACTIVE"
+          to="/employee/add"
+          >新增員工</router-link
+        >
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>名稱</th>
+            <th>狀態</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in list" :key="index">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.status == useConstant.StatusCode.ACTIVE ? '啟用' : '停用' }}</td>
+            <td>
+              <router-link :to="'/employee/edit/' + item.id">🖊</router-link
+              ><a
+                v-if="authStore.userInfo.is_admin == useConstant.StatusCode.ACTIVE"
+                @click="destroyBtn(item.id)"
+                >🗑</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <Pagination @set-page="setPage" :pagination="pagination" />
+    </div>
+  </div>
+</template>

@@ -1,0 +1,10 @@
+@use './value.scss';
+
+@mixin buttonStyle {
+  background-color: value.$light;
+  color: value.$white;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 3px 5px;
+  cursor: pointer;
+}
