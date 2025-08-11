@@ -242,7 +242,7 @@ const router = createRouter({
 })
 
 //預防沒權限的情況下瀏覽某些路由
-/* router.beforeEach(async (to) => {
+router.beforeEach(async (to) => {
   const authstore = useAuthStore()
   const publicRoutes = ['login', 'forgotPassword', 'resetPassword']
   if (!publicRoutes.includes(to.name)) {
@@ -252,6 +252,6 @@ const router = createRouter({
       return { name: 'login' }
     }
   }
-}) */
+})
 
 export default router
