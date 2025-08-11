@@ -8,7 +8,7 @@ const isShow = computed(() => loadingStore.isShow)
 <template>
   <div class="mask" v-show="isShow">
     <div class="lightbox">
-      <img src="../public/image/cycling.gif" alt="" />
+      <img src="/image/cycling.gif" alt="" />
     </div>
   </div>
 </template>

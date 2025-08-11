@@ -21,6 +21,9 @@
     transform: translate(-50%, -50%);
     border: value.$border;
     background-color: value.$white;
+    img {
+      width: 150px;
+    }
     p {
       font-weight: 700;
       font-size: 42px;

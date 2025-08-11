@@ -48,7 +48,7 @@
           <img src="@/assets/images/upload.png" alt="upload-image" />
         </label>
         <input type="file" name="" id="image" accept="image/png,image/jpg,image/jpeg,image/gif" />
-        <span>圖片格式：JPG,PNG,GIF，限1MB</span>
+        <span>圖片格式：JPG,PNG,GIF，限5MB</span>
         <br /> -->
         <template v-if="authStore.userInfo.is_admin == useConstant.StatusCode.ACTIVE">
           <p>狀態</p>

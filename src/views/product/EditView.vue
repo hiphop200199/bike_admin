@@ -28,61 +28,39 @@
           ></VField>
         </div>
         <ErrorMessage class="error" name="price"></ErrorMessage>
-        <p>主題</p>
+        <p>顏色</p>
         <div>
           <VField
             type="text"
-            name="theme"
-            v-model="form.theme"
+            name="color"
+            v-model="form.color"
             rules="required"
-            placeholder="請輸入主題"
+            placeholder="請輸入顏色"
           />
         </div>
-        <ErrorMessage class="error" name="theme"></ErrorMessage>
-        <p>語言</p>
+        <ErrorMessage class="error" name="color"></ErrorMessage>
+        <p>承載限制</p>
         <div>
           <VField
             type="text"
-            name="language"
-            v-model="form.language"
+            name="limit"
+            v-model="form.limit"
             rules="required"
-            placeholder="請輸入語言"
-          />
+            placeholder="請輸入承載限制"
+          />kg
         </div>
-        <ErrorMessage class="error" name="language"></ErrorMessage>
-        <p>作者</p>
+        <ErrorMessage class="error" name="limit"></ErrorMessage>
+        <p>適用身高</p>
         <div>
           <VField
             type="text"
-            name="author"
-            v-model="form.author"
+            name="height"
+            v-model="form.height"
             rules="required"
-            placeholder="請輸入作者"
-          />
+            placeholder="請輸入適用身高"
+          />cm
         </div>
-        <ErrorMessage class="error" name="author"></ErrorMessage>
-        <p>出版社</p>
-        <div>
-          <VField
-            type="text"
-            name="publisher"
-            v-model="form.publisher"
-            rules="required"
-            placeholder="請輸入出版社"
-          />
-        </div>
-        <ErrorMessage class="error" name="publisher"></ErrorMessage>
-        <p>出版日期</p>
-        <div>
-          <VField
-            type="date"
-            name="publish_date"
-            v-model="form.publish_date"
-            rules="required"
-            placeholder="請輸入出版日期"
-          />
-        </div>
-        <ErrorMessage class="error" name="publish_date"></ErrorMessage>
+        <ErrorMessage class="error" name="height"></ErrorMessage>
         <p>簡介</p>
         <div>
           <VField
@@ -96,10 +74,7 @@
         <ErrorMessage class="error" name="introduction"></ErrorMessage>
         <p>圖片（選填）</p>
         <label for="image">
-          <img
-            :src="image.source ? image.source : '../public/image/upload.png'"
-            alt="upload-image"
-          />
+          <img :src="image.source ? image.source : '/image/upload.png'" alt="upload-image" />
         </label>
         <input
           type="file"
@@ -108,7 +83,7 @@
           id="image"
           accept="image/png,image/jpg,image/jpeg"
         />
-        <span>圖片格式：JPG,PNG，限1MB</span>
+        <span>圖片格式：JPG,PNG，限5MB</span>
         <br />
         <p>庫存</p>
         <p>{{ info.stock }}</p>

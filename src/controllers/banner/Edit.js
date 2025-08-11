@@ -38,7 +38,7 @@ export default {
         return
       }
       //file檔案大小用B計算
-      if (file.size > 1 * 1024 * 1024) {
+      if (file.size > 5 * 1024 * 1024) {
         event.target.value = ''
         form.image = undefined
         alertLBStore.open(

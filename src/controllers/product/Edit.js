@@ -26,11 +26,9 @@ export default {
       name: '',
       price: 0,
       image: undefined,
-      theme: '',
-      language: '',
-      author: '',
-      publisher: '',
-      publish_date: '',
+      color: '',
+      limit: '',
+      height: '',
       introduction: '',
       status: useConstant.StatusCode.ACTIVE,
     })
@@ -46,7 +44,7 @@ export default {
         return
       }
       //file檔案大小用B計算
-      if (file.size > 1 * 1024 * 1024) {
+      if (file.size > 5 * 1024 * 1024) {
         event.target.value = ''
         form.image = undefined
         alertLBStore.open(
@@ -106,11 +104,9 @@ export default {
         form.id = id.value
         form.name = item.name
         form.price = item.price
-        form.theme = item.theme
-        form.language = item.language
-        form.author = item.author
-        form.publisher = item.publisher
-        form.publish_date = item.publish_date
+        form.color = item.color
+        form.limit = item.limit
+        form.height = item.height
         form.introduction = item.introduction
         form.status = item.status
         image.source = item.image_url

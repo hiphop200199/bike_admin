@@ -22,7 +22,7 @@
             as="img"
             name="image"
             :rules="image.source ? '' : 'required'"
-            :src="image.source ? image.source : '../public/image/upload.png'"
+            :src="image.source ? image.source : '/image/upload.png'"
             alt="upload-image"
           ></VField>
         </label>
@@ -32,7 +32,7 @@
           id="image"
           accept="image/png,image/jpg,image/jpeg"
         />
-        <span>圖片格式：JPG,PNG，限1MB</span>
+        <span>圖片格式：JPG,PNG，限5MB</span>
         <br />
         <ErrorMessage class="error" name="image"></ErrorMessage>
         <br />
