@@ -8,6 +8,7 @@ import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useProductStore } from '@/stores/product'
 import { useRoute } from 'vue-router'
 import { usePurchaseStore } from '@/stores/purchase'
+import { useVendorStore } from '@/stores/vendor'
 
 export default {
   components: {
@@ -21,10 +22,12 @@ export default {
     const purchaseStore = usePurchaseStore()
     const route = useRoute()
     const productStore = useProductStore()
+    const vendorStore = useVendorStore()
 
     let purchaseProductArea
     const purchaseProductNumber = ref(0)
     const total = ref(0)
+    const vendorList = computed(() => vendorStore.list)
     const productList = computed(() => productStore.list)
     const id = ref('')
     const form = reactive({
@@ -133,11 +136,17 @@ export default {
       await purchaseStore.get(params)
       loadingStore.close()
     }
+    const getVendorList = async () => {
+      loadingStore.open()
+      await vendorStore.getAllList()
+      loadingStore.close()
+    }
 
     onMounted(async () => {
       getId()
       await getInfo(id.value)
       await getProductList()
+      await getVendorList()
       purchaseProductNumber.value = form.detail.length + 1
       purchaseProductArea = document.querySelector('.purchase-product-area')
     })
@@ -166,6 +175,7 @@ export default {
       productList,
       addPurchaseProduct,
       countTotal,
+      vendorList,
     }
   },
 }

@@ -21,6 +21,12 @@ export const useVendorStore = defineStore('vendor', () => {
       info.value = response.data
     }
   }
+  async function getAllList() {
+    const response = await useApi.vendor.getAllList()
+    if (response.code === useConstant.StatusCode.SUCCESS) {
+      list.value = response.data.list
+    }
+  }
 
-  return { list, pagination, info, getList, get }
+  return { list, pagination, info, getList, get, getAllList }
 })

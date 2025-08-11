@@ -16,6 +16,16 @@
           />
         </div>
         <ErrorMessage class="error" name="name"></ErrorMessage>
+        <p>廠商</p>
+        <div>
+          <VField as="select" name="vendor" v-model="form.vendor" rules="required">
+            <option value="">請選擇廠商</option>
+            <option v-for="(item, index) in vendorList" :key="index" :value="item.id">
+              {{ item.name }}
+            </option>
+          </VField>
+        </div>
+        <ErrorMessage class="error" name="vendor"></ErrorMessage>
         <p>價格</p>
         <div>
           <VField

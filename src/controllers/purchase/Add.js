@@ -6,6 +6,7 @@ import { useConstant } from '@/constants'
 import { useAlertLBStore } from '@/stores/alertLB'
 import { computed, onMounted, reactive, ref } from 'vue'
 import { useProductStore } from '@/stores/product'
+import { useVendorStore } from '@/stores/vendor'
 
 export default {
   components: {
@@ -17,10 +18,12 @@ export default {
     const loadingStore = useLoadingStore()
     const alertLBStore = useAlertLBStore()
     const productStore = useProductStore()
+    const vendorStore = useVendorStore()
 
     let purchaseProductArea
     const purchaseProductNumber = ref(0)
     const total = ref(0)
+    const vendorList = computed(() => vendorStore.list)
     const productList = computed(() => productStore.list)
     const form = reactive({
       purchase_vendor: '',
@@ -116,9 +119,14 @@ export default {
       await productStore.getAllList()
       loadingStore.close()
     }
-
+    const getVendorList = async () => {
+      loadingStore.open()
+      await vendorStore.getAllList()
+      loadingStore.close()
+    }
     onMounted(async () => {
       await getProductList()
+      await getVendorList()
       purchaseProductArea = document.querySelector('.purchase-product-area')
     })
 
@@ -128,6 +136,7 @@ export default {
       form,
       total,
       productList,
+      vendorList,
       addPurchaseProduct,
     }
   },

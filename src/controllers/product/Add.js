@@ -3,8 +3,9 @@ import router from '@/router'
 import { useLoadingStore } from '@/stores/loading'
 import { useApi } from '@/apis'
 import { useAlertLBStore } from '@/stores/alertLB'
-import { reactive } from 'vue'
+import { computed, onMounted, reactive } from 'vue'
 import { useConstant } from '@/constants'
+import { useVendorStore } from '@/stores/vendor'
 
 export default {
   components: {
@@ -15,9 +16,13 @@ export default {
   setup() {
     const loadingStore = useLoadingStore()
     const alertLBStore = useAlertLBStore()
+    const vendorStore = useVendorStore()
+
+    const vendorList = computed(() => vendorStore.list)
 
     const form = reactive({
       name: '',
+      vendor: '',
       price: 0,
       image: undefined,
       color: '',
@@ -75,12 +80,24 @@ export default {
         alertLBStore.open(response.message, useConstant.LBDirection.STAY)
       }
     }
+
+    const getVendorList = async () => {
+      loadingStore.open()
+      await vendorStore.getAllList()
+      loadingStore.close()
+    }
+
+    onMounted(async () => {
+      await getVendorList()
+    })
+
     return {
       back,
       onSubmitForm,
       form,
       image,
       handleImage,
+      vendorList,
     }
   },
 }

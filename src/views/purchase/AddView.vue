@@ -17,7 +17,9 @@
             rules="required"
           >
             <option value="">請選擇訂購廠商</option>
-            <option value="九歌出版社">九歌出版社</option>
+            <option v-for="(item, index) in vendorList" :key="index" :value="item.name">
+              {{ item.name }}
+            </option>
           </VField>
         </div>
         <ErrorMessage class="error" name="purchase_vendor"></ErrorMessage>

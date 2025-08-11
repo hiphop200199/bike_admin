@@ -16,6 +16,8 @@
           />
         </div>
         <ErrorMessage class="error" name="name"></ErrorMessage>
+        <p>廠商</p>
+        <p>{{ info.vendor_name }}</p>
         <p>價格</p>
         <div>
           <VField

@@ -1,6 +1,6 @@
 import { request } from './base'
 
-const secondPrefix = 'delivery'
+const secondPrefix = 'vendor'
 
 export const getList = async (params) => {
   return await request.getList(secondPrefix, params)
@@ -20,4 +20,8 @@ export const edit = async (params, id) => {
 
 export const destroy = async (id) => {
   return await request.destroy(secondPrefix, id)
+}
+
+export const getAllList = async () => {
+  return await request.getAllList(secondPrefix)
 }
