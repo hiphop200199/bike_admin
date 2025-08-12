@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_PREFIX = '/api/api/admin/'
+const BASE_PREFIX = '/api/admin/'
 
 const getList = async (secondPrefix, params) => {
   return (await axios.get(BASE_PREFIX + secondPrefix + '/get-list', { params: params })).data
