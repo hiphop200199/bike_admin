@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://bike-api-flame.vercel.app/$1"
+      "destination": "https://bike-api-flame.vercel.app/api/$1"
     },
     {
       "source": "/(.*)",
