@@ -8,17 +8,23 @@ export const useProductStore = defineStore('product', () => {
   const pagination = ref({})
   const info = ref({})
 
+  async function getListByVendor(params) {
+    const response = await useApi.product.getListByVendor(params)
+    if (response.code === useConstant.StatusCode.SUCCESS) {
+      list.value = response.data.list
+    }
+  }
   async function getAllList() {
     const response = await useApi.product.getAllList()
     if (response.code === useConstant.StatusCode.SUCCESS) {
       list.value = response.data.list
-      pagination.value = response.data.pagination
     }
   }
   async function getList(param) {
     const response = await useApi.product.getList(param)
     if (response.code === useConstant.StatusCode.SUCCESS) {
       list.value = response.data.list
+      pagination.value = response.data.pagination
     }
   }
   async function get(id) {
@@ -28,5 +34,5 @@ export const useProductStore = defineStore('product', () => {
     }
   }
 
-  return { list, pagination, info, getList, get, getAllList }
+  return { list, pagination, info, getList, get, getAllList, getListByVendor }
 })

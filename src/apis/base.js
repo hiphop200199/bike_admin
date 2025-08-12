@@ -31,6 +31,11 @@ const getAllList = async (secondPrefix) => {
   return (await axios.get(BASE_PREFIX + secondPrefix + '/get-all-list')).data.response
 }
 
+const getListByVendor = async (secondPrefix, params) => {
+  return (await axios.get(BASE_PREFIX + secondPrefix + '/get-list-by-vendor', { params: params }))
+    .data.response
+}
+
 const login = async (params) => {
   return (await axios.post(BASE_PREFIX + 'login', params)).data.response
 }
@@ -65,6 +70,7 @@ export const request = {
   getAllList,
   login,
   getCaptcha,
+  getListByVendor,
   checkLogin,
   logout,
   forgotPassword,

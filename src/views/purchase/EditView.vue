@@ -9,6 +9,22 @@
         <p>{{ info.serial }}</p>
         <p>訂購人員</p>
         <p>{{ info.employee_name }}</p>
+        <p>廠商名稱</p>
+        <div>
+          <VField
+            as="select"
+            name="purchase_vendor"
+            @change="getProductList($event)"
+            v-model="form.purchase_vendor"
+            rules="required"
+          >
+            <option value="">請選擇訂購廠商</option>
+            <option v-for="(item, index) in vendorList" :key="index" :value="item.id">
+              {{ item.name }}
+            </option>
+          </VField>
+        </div>
+        <ErrorMessage class="error" name="purchase_vendor"></ErrorMessage>
         <p>新增訂購商品</p>
         <button @click="addPurchaseProduct($event)">新增</button>
         <div class="purchase-product-area">
@@ -44,21 +60,6 @@
             />
           </div>
         </div>
-        <p>廠商名稱</p>
-        <div>
-          <VField
-            as="select"
-            name="purchase_vendor"
-            v-model="form.purchase_vendor"
-            rules="required"
-          >
-            <option value="">請選擇訂購廠商</option>
-            <option v-for="(item, index) in vendorList" :key="index" :value="item.name">
-              {{ item.name }}
-            </option>
-          </VField>
-        </div>
-        <ErrorMessage class="error" name="purchase_vendor"></ErrorMessage>
         <p>訂購日期</p>
         <div>
           <VField

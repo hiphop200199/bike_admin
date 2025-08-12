@@ -114,9 +114,13 @@ export default {
         }
       }
     }
-    const getProductList = async () => {
+    const getProductList = async (event) => {
+      event.preventDefault()
+      const params = {
+        vendor: event.target.value,
+      }
       loadingStore.open()
-      await productStore.getAllList()
+      await productStore.getListByVendor(params)
       loadingStore.close()
     }
     const getVendorList = async () => {
@@ -125,7 +129,6 @@ export default {
       loadingStore.close()
     }
     onMounted(async () => {
-      await getProductList()
       await getVendorList()
       purchaseProductArea = document.querySelector('.purchase-product-area')
     })
@@ -138,6 +141,7 @@ export default {
       productList,
       vendorList,
       addPurchaseProduct,
+      getProductList,
     }
   },
 }

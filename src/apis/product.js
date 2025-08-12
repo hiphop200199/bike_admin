@@ -25,3 +25,7 @@ export const destroy = async (id) => {
 export const getAllList = async () => {
   return await request.getAllList(secondPrefix)
 }
+
+export const getListByVendor = async (params) => {
+  return await request.getListByVendor(secondPrefix, params)
+}
